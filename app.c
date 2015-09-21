@@ -44,24 +44,22 @@ void main_task(intptr_t unused) {
   ev3_motor_config(STEER, LARGE_MOTOR);
   ev3_motor_config(DRIVE_L, LARGE_MOTOR);
   ev3_motor_config(DRIVE_R, LARGE_MOTOR);
-
-  // Configure sensors
-  ev3_sensor_config(IR, COLOR_SENSOR);
-  ev3_sensor_config(TOUCH, TOUCH_SENSOR);
-
-  ev3_led_set_color(LED_GREEN);
-
   ev3_motor_reset_counts(STEER);
   ev3_motor_reset_counts(DRIVE_L);
   ev3_motor_reset_counts(DRIVE_R);
+  // Configure sensors
+  ev3_sensor_config(IR, COLOR_SENSOR);
+  ev3_sensor_config(TOUCH, TOUCH_SENSOR);
+  ev3_sensor_config(GYRO, GYRO_SENSOR);
+  ev3_led_set_color(LED_GREEN);
+
 
   while(!ev3_touch_sensor_is_pressed(TOUCH));
   tslp_tsk(500); /* 500msec wait */
 
-  char str[20];
-  sprintf(str, "%d", 1);
-  ev3_lcd_draw_string(str, 0, 0);
-
+  //  char str[20];
+  //  sprintf(str, "%d", 1);
+  //  ev3_lcd_draw_string(str, 0, 0);
 
   /*
   //í—ª‚Ì‰Šú‰»(‚à‚ë‚à‚ë‚â‚Á‚Ä‚­‚ê‚é
@@ -86,31 +84,12 @@ void main_task(intptr_t unused) {
   Line_tracer_set_target_grey_point(line_tracer, grey);
   Line_tracer_set_forward(line_tracer, 0);
   Line_tracer_set_turn(line_tracer, 0);
+  ev3_speaker_play_tone(NOTE_E5, 20);
 
   while(!ev3_button_is_pressed(BACK_BUTTON)) {
     Strategy_update(strategy);
-    Line_tracer_output(line_tracer);
+        Line_tracer_output(line_tracer);
     tslp_tsk(10); /* 10msec wait */
-    /*
-    light = ev3_color_sensor_get_reflect(IR);
-    count = ev3_motor_get_counts(STEER);
-    if(light>grey){
-      if(count<MAX_STEERING_ANGLE){
-	ev3_motor_set_power(STEER, 100);
-      }else{
-	ev3_motor_stop(STEER, true);
-      }
-      ev3_motor_set_power(DRIVE_L, -DRIVING_POWER);
-      ev3_motor_set_power(DRIVE_R,   1);
-    }else{
-      if(count>-MAX_STEERING_ANGLE){
-	ev3_motor_set_power(STEER, -100);
-      }else{
-	ev3_motor_stop(STEER, true);
-      }
-      ev3_motor_set_power(DRIVE_L,   1);
-      ev3_motor_set_power(DRIVE_R, -DRIVING_POWER);
-    */
   }
 
   ev3_motor_stop(STEER, false);

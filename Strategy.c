@@ -45,6 +45,11 @@ void Strategy_set_tactics_array(Strategy* strategy, enum Strategy_name strategy_
     strategy->tactics_name_array[0] = TEST_tactics1;
     strategy->tactics_name_array[1] = TEST_tactics2;
     strategy->tactics_name_array[2] = FINISHED;
+    break;
+  case L_Akino:
+    strategy->tactics_name_array[0] = L_Akino_tactics;
+    strategy->tactics_name_array[1] = FINISHED;
+    break;
 
   default:
     break;
@@ -52,10 +57,9 @@ void Strategy_set_tactics_array(Strategy* strategy, enum Strategy_name strategy_
 }
 
 void Strategy_update(Strategy* strategy){
-  char str[20];
-  sprintf(str, "%d", 2);
-  ev3_lcd_draw_string(str, 0, 10);
-
+  //  char str[20];
+  //  sprintf(str, "%d", 2);
+  //  ev3_lcd_draw_string(str, 0, 10);
   //もし現在の戦術が終わっていたら次の戦術へ移行
   if(Tactics_is_finished(strategy->tactics_main) == yes)
     Strategy_switch_next_tactics(strategy);

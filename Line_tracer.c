@@ -40,6 +40,11 @@ void Line_tracer_set_turn_from_pid(Line_tracer* line_tracer){
 void Line_tracer_output(Line_tracer* line_tracer){
   int steer_count = ev3_motor_get_counts(STEER);
   //STEERêßå‰
+
+
+
+
+  
   if(steer_count<MAX_STEERING_ANGLE && steer_count>-MAX_STEERING_ANGLE) {
     ev3_motor_set_power(STEER, line_tracer->turn/2);
   }else if(steer_count<=-MAX_STEERING_ANGLE &&  line_tracer->turn>=0){
@@ -51,5 +56,9 @@ void Line_tracer_output(Line_tracer* line_tracer){
   }
   //å„ó÷êßå‰
   ev3_motor_steer(DRIVE_L, DRIVE_R, -line_tracer->forward, - line_tracer->turn);
+
+
+
+  
 }
 

@@ -12,11 +12,13 @@ enum Tactics_name{
   R_SHINKANSEN,                        //新幹線
   R_PARALLEL_PARKING,                  //縦列駐車
 
+
   //Lコースの戦術
   L_DUAL_BRIDGE,                       //二本橋
   L_BARCODE,                           //バーコード
   L_SPECIFICATIONS_UNDETERMAINED_AREA, //仕様未確定エリア
   L_RIGHT_ANGLE_PARKING,               //直角駐車場
+  L_Akino_tactics, //Akino Lコーススタート~バーコード前
 
   //汎用
   STANDARD,                            //通常走行
@@ -46,6 +48,7 @@ void Tactics_update(Tactics* tactics);
 void Tactics_TEST1(Tactics* tactics);
 void Tactics_TEST2(Tactics* tactics);
 void Tactics_FINISHED(Tactics* tactics);
+void Tactics_Akino(Tactics* tactics);
 
 
 #endif

@@ -25,22 +25,26 @@ enum yes_or_no Tactics_is_finished(Tactics* tactics) {
  ***/
 
 void Tactics_update(Tactics* tactics){
+  //  ev3_speaker_play_tone(NOTE_E5, 20);
   char str[20];
 
   //‚»‚ê‚¼‚ê‚Ìíp‚É”ò‚Ô íp‚É”ò‚ñ‚¾‚çAˆø”‚Æ‚µ‚Ä“n‚µ‚½tactics‚Ìcurrent_step‚ðŒ©‚Ä“®ì‚µ‚Ä‚¢‚­
   //Šeíp‚Ì’†‚Åforward, turn’l‚ðŒˆ‚ß, ƒ‚[ƒ^[§ŒäƒNƒ‰ƒX‚É“n‚µ‚Ä‚¨‚­‚±‚Æ
   switch(tactics->tactics_current_name){
   case TEST_tactics1:
-    sprintf(str, "%d", 3);
-    ev3_lcd_draw_string(str, 0, 0);
+    //    sprintf(str, "%d", 3);
+    //  ev3_lcd_draw_string(str, 0, 0);
     Tactics_TEST1(tactics);
     break;
   case TEST_tactics2:
-    sprintf(str, "%d", 4);
-    ev3_lcd_draw_string(str, 0, 0);
+    //    sprintf(str, "%d", 4);
+    //    ev3_lcd_draw_string(str, 0, 0);
     Tactics_TEST2(tactics);
     break;
 
+  case L_Akino_tactics:
+    Tactics_Akino(tactics);
+    break;
     /*  case STANDARD:
     Tactics_standard(strategy->tactics_main);
     break;

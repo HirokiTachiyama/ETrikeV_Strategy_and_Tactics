@@ -21,7 +21,7 @@ void __pid_init(pid *init_pid,double p_gain,double i_gain,double d_gain,double t
   init_pid->integral = integral;
   init_pid->target = target;
   init_pid->output = output;
-  init_pid->del = 0.004; //from ETRob2014Kagoshima/common_definition.h
+  init_pid->del = DEL;
  }
 
 void pid_change_del(pid *target_pid,double next_del){

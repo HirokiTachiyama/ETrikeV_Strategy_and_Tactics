@@ -10,7 +10,8 @@ enum Strategy_name{
   L_ALL,    //Ｌコースをボーナスステージまで全て攻略狙い
   R_ALL,    //Ｒコースをボーナスステージまで全て攻略狙い
   R_U_TURN, //Ｒコースをゴール直後にＵターンする
-  TEST_strategy      //テスト用戦略
+  TEST_strategy,      //テスト用戦略
+  L_Akino               //Lコース、第一ゴールゲートまで
 };
 
 typedef struct Strategy_structure{

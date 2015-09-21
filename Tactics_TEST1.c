@@ -5,10 +5,12 @@
 
 extern Line_tracer* line_tracer;
 
+
+
+
 void Tactics_TEST1(Tactics* tactics){
 
   char str[20];
-  int i = 0;
   switch(tactics->current_step) {
 
   case 0:

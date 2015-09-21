@@ -10,7 +10,6 @@ typedef struct Line_tracer_structure{
   //signed char turn;      //旋回速度
   signed char forward;   //前進速度
   double turn;      //旋回速度
-
   int run_counter;       //走るときに使うカウンタ ご自由にお使い下さい
   pid* turn_pid; //turn用PID
   //Motor_controler* Motor_controler; //モーター制御クラス
